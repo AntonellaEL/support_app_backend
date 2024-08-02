@@ -1,21 +1,21 @@
 package dev.anto.supportApp.services;
 
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 import dev.anto.supportApp.models.Solicitud;
-
 import dev.anto.supportApp.repositories.SolicitudRepository;
 
 @Service
 public class SolicitudService {
 
-    private SolicitudRepository repository;
+    private final SolicitudRepository repository;
 
     public SolicitudService(SolicitudRepository repository) {
         this.repository = repository;
     }
 
-    public List <Solicitud> getSolicitudes() {
+    public List<Solicitud> getSolicitudes() {
         return repository.findAllByOrderByDateDesc();
     }
 
